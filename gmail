@@ -32,7 +32,7 @@ class usando_unittest(unittest.TestCase):
     buscar_por_xpath=driver.find_element_by_xpath('/html/body/table[2]/tbody/tr/td[2]/table[1]/tbody/tr/td[2]/form/table[2]/tbody/tr[1]/td[3]').click() #abre el primer mail
     time.sleep(3)
 
-    elem = driver.find_elements_by_xpath('/html/body/table[2]/tbody/tr/td[2]/table[1]/tbody/tr/td[2]/table[4]/tbody/tr/td/table[1]/tbody/tr[4]/td/div/div/table/tbody/tr/td/table[2]/tbody/tr/th/table/tbody/tr')
+    elem = driver.find_element_by_xpath('/html/body/table[2]/tbody/tr/td[2]/table[1]/tbody/tr/td[2]/table[4]/tbody/tr/td/table[1]/tbody/tr[4]/td/div/div/table/tbody/tr/td/table[2]/tbody/tr/th/table/tbody/tr')
     print (elem.text)
     
      
