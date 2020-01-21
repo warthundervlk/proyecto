@@ -1,0 +1,40 @@
+import unittest
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import time
+import html2text
+import urllib
+from bs4 import BeautifulSoup
+
+class usando_unittest(unittest.TestCase):
+
+  def setUp(self):
+    self.driver = webdriver.Chrome(executable_path=r"C:\Chrome Driver\chromedriver.exe")
+
+  def test_buscar_por_xpath(self):
+    driver =self.driver
+    driver.get("https://gmail.com")
+    time.sleep(1)
+    buscar_por_xpath=driver.find_element_by_xpath("//*[@id='identifierId']")
+    buscar_por_xpath.send_keys("email")
+    time.sleep(1)
+    buscar_por_xpath=driver.find_element_by_xpath("//*[@id='identifierNext']/span/span").click()
+    time.sleep(2)
+    buscar_por_xpath=driver.find_element_by_xpath("//*[@id='password']/div[1]/div/div[1]/input")
+    buscar_por_xpath.send_keys("contraseña")
+    time.sleep(2)
+    buscar_por_xpath=driver.find_element_by_xpath("//*[@id='passwordNext']/span/span").click() #entra a mi gmail
+    
+    time.sleep(2)
+    buscar_por_xpath=driver.find_element_by_xpath('/html/body/table[2]/tbody/tr/td[2]/table[1]/tbody/tr/td[2]/form/table[2]/tbody/tr[1]/td[3]').click() #abre el primer mail
+    time.sleep(3)
+
+    elem = driver.find_elements_by_xpath('/html/body/table[2]/tbody/tr/td[2]/table[1]/tbody/tr/td[2]/table[4]/tbody/tr/td/table[1]/tbody/tr[4]/td/div/div/table/tbody/tr/td/table[2]/tbody/tr/th/table/tbody/tr')
+    print (elem.text)
+    
+     
+if __name__ == '__main__':
+  unittest.main()
